@@ -1,0 +1,124 @@
+import React, { useState } from 'react';
+import { Menu, X, Instagram, Youtube, Facebook, Phone, Mail, MessageCircle } from 'lucide-react';
+
+export default function GaviruPersonalSite() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  return (
+    <div className="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen">
+      {/* Header */}
+      <header className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-6 shadow-lg">
+        <div className="container mx-auto px-4 flex justify-between items-center">
+          <h1 className="text-3xl font-bold">ගවිරුගේ පුද්ගලික වෙබ් අඩවිය</h1>
+          
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={30} /> : <Menu size={30} />}
+          </button>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-6">
+            <a href="#home" className="hover:text-blue-200 transition-colors">මුල් පිටුව</a>
+            <a href="#projects" className="hover:text-blue-200 transition-colors">ප්‍රජෙක්ට්ස්</a>
+            <a href="#contact" className="hover:text-blue-200 transition-colors">සම්බන්ධ වන්න</a>
+          </nav>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 w-full bg-blue-700 z-50">
+            <nav className="flex flex-col items-center py-4 space-y-4">
+              <a href="#home" className="hover:bg-blue-600 px-4 py-2 rounded" onClick={() => setIsMenuOpen(false)}>මුල් පිටුව</a>
+              <a href="#projects" className="hover:bg-blue-600 px-4 py-2 rounded" onClick={() => setIsMenuOpen(false)}>ප්‍රජෙක්ට්ස්</a>
+              <a href="#contact" className="hover:bg-blue-600 px-4 py-2 rounded" onClick={() => setIsMenuOpen(false)}>සම්බන්ධ වන්න</a>
+            </nav>
+          </div>
+        )}
+      </header>
+
+      {/* Home Section */}
+      <section id="home" className="container mx-auto px-4 py-12 text-center">
+        <h2 className="text-2xl font-semibold text-blue-800 mb-6">මගේ ගැන</h2>
+        <p className="max-w-2xl mx-auto text-gray-700 mb-8">
+          අපි ගැන කෙටි හැඳින්වීමක් මෙතන ලියන්න. ඔබේ කලාත්මක ගමන සහ අරමුණු දැක්විය හැක.
+        </p>
+        
+        <div className="flex justify-center space-x-4 mb-8">
+          <a href="https://vm.tiktok.com/ZSjwDESes/" target="_blank" className="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition-colors">
+            <Instagram size={24} />
+          </a>
+          <a href="https://youtube.com/@gavirusandiptha_?si=4WSX5_HuEjujP-1W" target="_blank" className="bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition-colors">
+            <Youtube size={24} />
+          </a>
+          <a href="https://www.facebook.com/share/18L5oKqShQ/" target="_blank" className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors">
+            <Facebook size={24} />
+          </a>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="container mx-auto px-4 py-12 bg-white shadow-md rounded-lg">
+        <h2 className="text-2xl font-semibold text-blue-800 mb-6 text-center">ප්‍රජෙක්ට්ස්</h2>
+        <p className="max-w-2xl mx-auto text-center text-gray-700">
+          ඔබේ නිර්මාණ සහ වැඩ මෙතනට එක් කරන්න.
+        </p>
+        {/* TODO: Add actual project cards/grid */}
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="container mx-auto px-4 py-12">
+        <h2 className="text-2xl font-semibold text-blue-800 mb-6 text-center">සම්බන්ධ වන්න</h2>
+        
+        <div className="max-w-md mx-auto space-y-4">
+          <a href="tel:+94702521438" className="flex items-center justify-center bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 transition-colors">
+            <Phone className="mr-2" /> +94 70 252 1438
+          </a>
+          
+          <a href="https://wa.me/94702521438" target="_blank" className="flex items-center justify-center bg-green-600 text-white p-3 rounded-lg hover:bg-green-700 transition-colors">
+            <MessageCircle className="mr-2" /> Message on WhatsApp
+          </a>
+          
+          <a href="mailto:gavirusandiptha8@gmail.com" className="flex items-center justify-center bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-colors">
+            <Mail className="mr-2" /> gavirusandiptha8@gmail.com
+          </a>
+        </div>
+
+        {/* Contact Form */}
+        <form className="max-w-md mx-auto mt-8 space-y-4">
+          <input 
+            type="text" 
+            placeholder="ඔබේ නම" 
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required 
+          />
+          <input 
+            type="email" 
+            placeholder="ඔබේ ඊමේල් ලිපිනය" 
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required 
+          />
+          <textarea 
+            rows={5} 
+            placeholder="ඔබේ පණිවිඩය" 
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required 
+          />
+          <button 
+            type="submit" 
+            className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            යවන්න
+          </button>
+        </form>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-6 text-center">
+        <p>© 2024 ගවිරුගේ පුද්ගලික වෙබ් අඩවිය. සියලු හිමිකම් ඇවිරිණි.</p>
+      </footer>
+    </div>
+  );
+}
